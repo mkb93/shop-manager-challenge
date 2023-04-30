@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS orders;
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY, 
     name text, 
-    HIREDATE date,
+    date date,
     price real,
     items int
     );
@@ -18,4 +18,4 @@ CREATE TABLE orders (
 
 TRUNCATE TABLE orders RESTART IDENTITY; 
 
-INSERT INTO orders (name, HIREDATE, price, items) VALUES ('Order 1', '1000/10/10',15.00, 10),('Order 2', '2000/10/20', 30.00, 20);
+INSERT INTO orders (name, date, price, items) VALUES ('Order 1', '1000/10/10',15.00, 10),('Order 2', '2000/10/20', 30.00, 20);

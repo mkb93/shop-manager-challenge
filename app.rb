@@ -14,3 +14,4 @@ order_repo = OrderRepository.new
 order_repo.all.each do |ab|
   puts ab.price
 end
+puts order_repo.find(1).date
