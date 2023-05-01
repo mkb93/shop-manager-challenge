@@ -11,8 +11,11 @@ class ItemRepository
     return items
   end
 
-  def find(item)
-
+  def find(id)
+    result = sql_integrater('SELECT * FROM items WHERE id = $1;', [id])
+    item = result.first
+    order = sql_to_item(item)
+    return order
   end
 
   def create(item)
@@ -30,11 +33,8 @@ class ItemRepository
   end
 
   def sql_to_item(product)
-    item = Item.new
+    item = Item.new(product['name'], product['price'], product['amount'])
     item.id = product['id']
-    item.name = product['name']
-    item.price = product['price']
-    item.amount = product['amount']
     return item
   end
 end

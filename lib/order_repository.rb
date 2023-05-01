@@ -25,12 +25,8 @@ class OrderRepository
   end
 
   def sql_to_order(item)
-    order = Order.new
+    order = Order.new(item['name'],item['date'])
     order.id = item['id']
-    order.name = item['name']
-    order.date = item['date']
-    order.price = item['price']
-    order.items = item['items']
     return order
   end
 end

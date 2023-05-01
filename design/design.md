@@ -46,4 +46,6 @@ update order
 item table
 id | name | price | amount
 order table
-id | customer_name | order_date | item
+id | name | date
+orders_item table
+item_id | orders_id
