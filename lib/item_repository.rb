@@ -19,11 +19,21 @@ class ItemRepository
   end
 
   def create(item)
-
+    sql_integrater('INSERT INTO items (name, price, amount) VALUES ($1, $2, $3);',
+    [item.name, item.price, item.amount])
+    return nil
   end
 
   def delete(item)
-    
+    sql_integrater('DELETE FROM items WHERE name = $1;', 
+    [item.name])
+    return nil
+  end
+
+  def update(item)
+    sql_integrater('UPDATE items SET name = $1, price = $2, amount = $3 WHERE id = $4;',
+    [item.name, item.price, item.amount, item.id])
+    return nil
   end
 
   private
